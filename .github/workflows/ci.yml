@@ -30,7 +30,7 @@ jobs:
         shell: bash
 
       - name: Start Selenium Server nodes
-        run: nohup java -jar selenium-server-4.17.0.jar node --port 5555 --selenium-manager true & sleep 10
+        run: nohup java -jar selenium-server-4.17.0.jar node & sleep 10
         shell: bash
 
       - name: Run tests
