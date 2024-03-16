@@ -33,8 +33,8 @@ class BrowserWrapper:
             print(option.to_capabilities())
             driver = webdriver.Remote(command_executor=hub_url, options=option)
             sleep(100)
-            print(f"{driver.title} hada hoo")
             driver.get(url)
+            print(f"{driver.title} hada hoo")
             driver.maximize_window()
             return driver
         else:
