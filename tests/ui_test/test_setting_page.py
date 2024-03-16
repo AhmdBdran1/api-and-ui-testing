@@ -12,7 +12,7 @@ class SettingPageTests(unittest.TestCase):  # test the home page , it's personal
     def setUp(self):
         self.browser_wrapper = BrowserWrapper()
 
-    def test_change_password_with_wrong_confirm_password(self, option=webdriver.ChromeOptions()):
+    def test_change_password_with_wrong_confirm_password(self, option):
         # test change the password with wrong confirmation
         driver = self.browser_wrapper.get_driver(option)
         main_page = MainPage(driver)

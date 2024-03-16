@@ -26,13 +26,14 @@ class BrowserWrapper:
         option.add_argument('--no--sandbox')
         option.add_argument('--disable-dev-shm-usage')
         option.add_argument('--window-size=1920x1080')
-        print(option)
         if grid:
+            print(option)
             driver = webdriver.Remote(command_executor=hub_url, options=option)
             driver.get(url)
             driver.maximize_window()
             return driver
         else:
+            print('bla bla')
             driver = webdriver.Chrome(option)
             driver.get(url)
             return driver
