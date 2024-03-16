@@ -42,7 +42,7 @@ jobs:
 
       - name: Run tests
         run: |
-          python tests_runner/test_login_page.py
+          python tests_runner/ui_test_runner.py
 
       - name: Upload test results
         uses: actions/upload-artifact@v2
