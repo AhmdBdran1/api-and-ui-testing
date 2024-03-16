@@ -1,4 +1,6 @@
 import json
+from time import sleep
+
 from selenium import webdriver
 import os
 import concurrent.futures
@@ -22,7 +24,10 @@ class BrowserWrapper:
         grid = config['grid']
         hub_url = config['hub_url']
         url = config['url']
-
+        option.add_argument('--headless')  # This line makes Chrome ruun in headless mode
+        #option.add_argument('--no--sandbox')
+        #option.add_argument('--disable-dev-shm-usage')
+        #option.add_argument('--window-size=1920x1080')
         if grid:
             print('ala ala')
             print(option.to_capabilities())
@@ -34,6 +39,9 @@ class BrowserWrapper:
             print('bla bla')
             driver = webdriver.Chrome(option)
             driver.get(url)
+            sleep(9)
+            print(f"{driver.title} hada hoo")
+
             driver.maximize_window()
             return driver
 
