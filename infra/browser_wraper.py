@@ -28,7 +28,7 @@ class BrowserWrapper:
         option.add_argument('--window-size=1920x1080')
         if grid:
             print('ala ala')
-
+            print(option.to_capabilities())
             driver = webdriver.Remote(command_executor=hub_url, options=option)
             driver.get(url)
             driver.maximize_window()
@@ -48,7 +48,7 @@ class BrowserWrapper:
     def test_run_grid_parallel(self, test_execute):
         options_list = self.get_capabilities_list()
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(options_list)) as executor:
-            results = list(executor.map(test_execute, options_list))
+            list(executor.map(test_execute, options_list))
 
     def run_test(self, test_execute):
         config_file = '../config.json'
