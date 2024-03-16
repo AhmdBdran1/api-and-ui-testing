@@ -11,7 +11,7 @@ class LoginPageTests(unittest.TestCase):
     def setUp(self):
         self.browser_wrapper = BrowserWrapper()
 
-    def test_login(self, option=webdriver.FirefoxOptions()):  # test the login process
+    def test_login(self, option=webdriver.ChromeOptions()):  # test the login process
         driver = self.browser_wrapper.get_driver(option)
         main_page = MainPage(driver)
         main_page.click_to_start_login()
@@ -21,6 +21,7 @@ class LoginPageTests(unittest.TestCase):
         #name = home_page.get_the_name_of_the_account_owner()
         #driver.quit()
         #self.assertEqual(name, "Ahmd Bdran")
+
 
 
 
