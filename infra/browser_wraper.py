@@ -29,7 +29,7 @@ class BrowserWrapper:
         hub_url = config['hub_url']
         url = config['url']
         option.add_argument("--disable-blink-features=AutomationControlled")
-        #option.add_argument('--headless')  # This line makes Chrome ruun in headless mode
+        option.add_argument('--headless')  # This line makes Chrome run in headless mode
         option.add_argument('--no--sandbox')
         option.add_experimental_option("excludeSwitches", ["enable-automation"])
         # Turn-off userAutomationExtension
