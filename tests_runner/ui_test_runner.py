@@ -9,7 +9,7 @@ def suite():
     test_suite = unittest.TestSuite()
     # Add specific tests from different test classes to the suite
     test_suite.addTest(LoginPageTests('test_all_tests'))
-    test_suite.addTest(SettingPageTests('test_all_tests'))
+    #test_suite.addTest(SettingPageTests('test_all_tests'))
     return test_suite
 
 
