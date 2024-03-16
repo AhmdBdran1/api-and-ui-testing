@@ -17,10 +17,10 @@ class LoginPageTests(unittest.TestCase):
         main_page.click_to_start_login()
         login_page = LoginPage(driver)
         login_page.login()
-        #home_page = HomePage(driver)
-        #name = home_page.get_the_name_of_the_account_owner()
+        home_page = HomePage(driver)
+        name = home_page.get_the_name_of_the_account_owner()
         driver.quit()
-        #self.assertEqual(name, "Ahmd Bdran") /
+        self.assertEqual(name, "Ahmd Bdran")
 
     def test_specific_test(self):
         self.browser_wrapper.run_test(self.test_login)  # select the specific function you want to run
