@@ -11,7 +11,7 @@ class LoginPageTests(unittest.TestCase):
     def setUp(self):
         self.browser_wrapper = BrowserWrapper()
 
-    def test_login(self, option=webdriver.ChromeOptions()):  # test the login process
+    def test_login(self, option=webdriver.FirefoxOptions()):  # test the login process
         driver = self.browser_wrapper.get_driver(option)
         main_page = MainPage(driver)
         main_page.click_to_start_login()
@@ -25,10 +25,7 @@ class LoginPageTests(unittest.TestCase):
     def test_specific_test(self):
         self.browser_wrapper.run_test(self.test_login)  # select the specific function you want to run
 
-    def test_all_tests(self):  # run all tests
-        tests_list = [self.test_login]
-        for test in tests_list:
-            self.browser_wrapper.run_test(test)
+
 
 
 
