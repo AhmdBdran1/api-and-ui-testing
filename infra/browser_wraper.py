@@ -27,7 +27,8 @@ class BrowserWrapper:
         option.add_argument('--disable-dev-shm-usage')
         option.add_argument('--window-size=1920x1080')
         if grid:
-            print(option)
+            print('ala ala')
+
             driver = webdriver.Remote(command_executor=hub_url, options=option)
             driver.get(url)
             driver.maximize_window()

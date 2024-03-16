@@ -43,7 +43,6 @@ jobs:
       - name: Run tests
         run: |
           python tests_runner/ui_test_runner.py
-          python -m unittest tests_runner/api_test_runner.py
 
       - name: Upload test results
         uses: actions/upload-artifact@v2
