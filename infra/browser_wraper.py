@@ -37,8 +37,8 @@ class BrowserWrapper:
             print(option.to_capabilities())
             driver = webdriver.Remote(command_executor=hub_url, options=option)
             driver.get(url)
-            sleep(200)
-
+            # Wait until the title changes from "Just a moment..."
+            sleep(10)
             print(f"{driver.title} hada hoo")
             driver.maximize_window()
             return driver
