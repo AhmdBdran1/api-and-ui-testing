@@ -33,9 +33,9 @@ jobs:
         run: nohup java -jar selenium-server-4.17.0.jar node & sleep 10
         shell: bash
 
-      - name: Run tests
+      - name: Set PYTHONPATH
         run: |
-          export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+          export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}"
 
 
       - name: Run tests
