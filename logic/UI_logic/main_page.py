@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class MainPage(BasePage):
-    LOGIN_BUTTON_XPATH = "//*[@id='nav-main']/div/a[1]"
+    LOGIN_BUTTON_XPATH = "//a[normalize-space()='Log in']"
 
     def __init__(self, driver):
         super().__init__(driver)
