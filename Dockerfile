@@ -24,18 +24,6 @@ RUN apt-get update && apt-get install -y \
     google-chrome-stable \
     && rm -rf /var/lib/apt/lists/* \
 
- # Download Selenium Server jar
-RUN wget https://selenium-release.storage.googleapis.com/4.17/selenium-server-4.17.0.jar
-
-# Expose the ports used by Selenium Hub and Nodes
-EXPOSE 4444
-
-# Start Selenium Hub
-CMD ["java", "-jar", "selenium-server-4.17.0.jar", "hub"]
-
-# You may want to start Selenium Nodes as separate Docker containers.
-# Alternatively, you can start them in the background by running:
-CMD ["java", "-jar", "selenium-server-4.17.0.jar", "node"]
 
 
 # Define environment variables
