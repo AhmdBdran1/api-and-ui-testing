@@ -32,7 +32,7 @@ class BrowserWrapper:
             print('ala ala')
             print(option.to_capabilities())
             driver = webdriver.Remote(command_executor=hub_url, options=option)
-            sleep(50)
+            sleep(120)
             print(f"{driver.title} hada hoo")
             driver.get(url)
             driver.maximize_window()
@@ -69,5 +69,5 @@ class BrowserWrapper:
     def get_capabilities_list(self):  # initialize the capabilities we need to test on
         chrome_cap = webdriver.ChromeOptions()
         firefox_cap = webdriver.FirefoxOptions()
-        cap_list = [chrome_cap]
+        cap_list = [chrome_cap, firefox_cap]
         return cap_list
