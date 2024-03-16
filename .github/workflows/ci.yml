@@ -20,7 +20,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          
+
+      - name: Set PYTHONPATH
+        run: |
+          echo "PYTHONPATH=${PYTHONPATH}:${GITHUB_WORKSPACE}" >> $GITHUB_ENV
 
       - uses: browser-actions/setup-chrome@latest
       - run: chrome --version
@@ -33,10 +36,9 @@ jobs:
         run: nohup java -jar selenium-server-4.17.0.jar node & sleep 10
         shell: bash
 
-      - name: Set PYTHONPATH
-        run: |
-          echo "PYTHONPATH=${PYTHONPATH}:${GITHUB_WORKSPACE}" >> $GITHUB_ENV
-        
+      - name: Set up Firefox
+        uses: browser-actions/setup-firefox@latest
+      - run: firefox --version
 
       - name: Run tests
         run: |
