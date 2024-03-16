@@ -5,6 +5,10 @@ from selenium import webdriver
 import os
 import concurrent.futures
 
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
 
 def read_config(file_path):  # open the config file for read
     script_directory = os.path.dirname(os.path.realpath(__file__))
@@ -33,7 +37,8 @@ class BrowserWrapper:
             print(option.to_capabilities())
             driver = webdriver.Remote(command_executor=hub_url, options=option)
             driver.get(url)
-            sleep(200)
+            # Wait until the title changes from "Just a moment..."
+            WebDriverWait(driver, 300).until(EC.title_is("Upwork | The World’s Work Marketplace"))
 
             print(f"{driver.title} hada hoo")
             driver.maximize_window()
