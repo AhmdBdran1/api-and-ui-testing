@@ -2,12 +2,6 @@
 # Use the official Python image from the Docker Hub
 FROM python:3.10-slim
 
-
-ENV PYTHONPATH="/usr/src/app:${PYTHONPATH}"
-
-# Define environment variable
-ENV PATH="/usr/src/app:${PATH}"
-
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -28,7 +22,25 @@ RUN apt-get update && apt-get install -y \
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update && apt-get install -y \
     google-chrome-stable \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+
+ # Download Selenium Server jar
+RUN wget https://selenium-release.storage.googleapis.com/4.17/selenium-server-4.17.0.jar
+
+# Expose the ports used by Selenium Hub and Nodes
+EXPOSE 4444
+
+# Start Selenium Hub
+CMD ["java", "-jar", "selenium-server-4.17.0.jar", "hub"]
+
+# You may want to start Selenium Nodes as separate Docker containers.
+# Alternatively, you can start them in the background by running:
+CMD ["java", "-jar", "selenium-server-4.17.0.jar", "node"]
+
+
+# Define environment variables
+ENV PYTHONPATH="/usr/src/app:${PYTHONPATH}"
+ENV PATH="/usr/src/app:${PATH}"
 
 # Run the shell script that runs both Python scripts when the container starts
 # Run both Python scripts when the container starts
