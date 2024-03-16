@@ -17,10 +17,11 @@ class LoginPageTests(unittest.TestCase):
         main_page.click_to_start_login()
         login_page = LoginPage(driver)
         login_page.login()
-        #home_page = HomePage(driver)
-        #name = home_page.get_the_name_of_the_account_owner()
-        #driver.quit()
-        #self.assertEqual(name, "Ahmd Bdran")
+        home_page = HomePage(driver)
+        name = home_page.get_the_name_of_the_account_owner()
+        driver.quit()
+        self.assertEqual(name, "Ahmd Bdran")
+
 
 
 
