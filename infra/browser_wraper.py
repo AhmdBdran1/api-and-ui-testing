@@ -25,14 +25,12 @@ class BrowserWrapper:
         option.add_argument('--headless')  # This line makes Chrome run in headless mode
 
         if grid:
-            print('ala ala')
             print(option.to_capabilities())
             driver = webdriver.Remote(command_executor=hub_url, options=option)
             driver.get(url)
             driver.maximize_window()
             return driver
         else:
-            print('bla bla')
             driver = webdriver.Chrome(option)
             driver.get(url)
             return driver
