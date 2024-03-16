@@ -58,7 +58,6 @@ class BrowserWrapper:
 
     def get_capabilities_list(self):  # initialize the capabilities we need to test on
         chrome_cap = webdriver.ChromeOptions()
-        chrome_cap.capabilities['platformName'] = 'mac'
 
         cap_list = [chrome_cap]
         return cap_list
