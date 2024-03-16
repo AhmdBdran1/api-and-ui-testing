@@ -39,7 +39,7 @@ class BrowserWrapper:
             print('bla bla')
             driver = webdriver.Chrome(option)
             driver.get(url)
-            sleep(9)
+            sleep(60)
             print(f"{driver.title} hada hoo")
 
             driver.maximize_window()
