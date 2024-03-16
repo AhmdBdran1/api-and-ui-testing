@@ -62,5 +62,5 @@ class BrowserWrapper:
     def get_capabilities_list(self):  # initialize the capabilities we need to test on
         chrome_cap = webdriver.ChromeOptions()
         firefox_cap = webdriver.FirefoxOptions()
-        cap_list = [firefox_cap]
+        cap_list = [firefox_cap, chrome_cap]
         return cap_list
