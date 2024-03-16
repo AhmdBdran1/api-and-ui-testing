@@ -37,13 +37,13 @@ class BrowserWrapper:
             print('bla bla')
             driver = webdriver.Chrome(option)
             driver.get(url)
+            driver.maximize_window()
             return driver
 
     def test_run_grid_serial(self, test_execute):  # run the test with serial process
         cap_list = self.get_capabilities_list()
         for caps in cap_list:
-            driver = self.get_driver(caps)
-            test_execute(driver)
+            test_execute(caps)
 
     def test_run_grid_parallel(self, test_execute):
         options_list = self.get_capabilities_list()
