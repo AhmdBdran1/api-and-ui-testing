@@ -35,7 +35,7 @@ jobs:
 
       - name: Set PYTHONPATH
         run: |
-          export PYTHONPATH="${PYTHONPATH}
+          echo "PYTHONPATH=${PYTHONPATH}:${GITHUB_WORKSPACE}" >> $GITHUB_ENV
         
 
       - name: Run tests
