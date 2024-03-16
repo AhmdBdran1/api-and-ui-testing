@@ -20,7 +20,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          
+
+      - name: Add project directory to Python path
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}"
+        shell: bash
 
       - uses: browser-actions/setup-chrome@latest
       - run: chrome --version
@@ -37,6 +41,7 @@ jobs:
         run: |
           python tests_runner/ui_test_runner.py
           python -m unittest tests_runner/api_test_runner.py
+
       - name: Upload test results
         uses: actions/upload-artifact@v2
         with:

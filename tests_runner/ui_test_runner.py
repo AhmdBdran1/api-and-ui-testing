@@ -1,8 +1,8 @@
 
-import unittest
 
 from tests.ui_test.test_login_page import LoginPageTests
 from tests.ui_test.test_setting_page import SettingPageTests
+import unittest
 
 
 def suite():
