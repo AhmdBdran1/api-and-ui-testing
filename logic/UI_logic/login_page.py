@@ -17,22 +17,22 @@ class LoginPage(BasePage):
 
     def login(self):
         try:
-            input_email = WebDriverWait(self.driver, 30).until(
+            input_email = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, self.INPUT_EMAIL_XPATH))
             )
             input_email.send_keys("ahmd1997bdran@gmail.com")
 
-            continue_with_email_button = WebDriverWait(self.driver, 30).until(
+            continue_with_email_button = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, self.CONTINUE_WITH_EMAIL_BTN_XPATH))
             )
             continue_with_email_button.click()
 
-            input_password = WebDriverWait(self.driver, 30).until(
+            input_password = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, self.INPUT_PASSWORD_XPATH))
             )
             input_password.send_keys("Ahm2023bdr")
 
-            login_button_after_insert_data = WebDriverWait(self.driver, 30).until(
+            login_button_after_insert_data = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, self.LOGIN_BUTTON_AFTER_INSERT_DATA_XPATH))
             )
             login_button_after_insert_data.click()
@@ -44,22 +44,22 @@ class LoginPage(BasePage):
 
     def login_with_wrong_credential(self):
         try:
-            input_email = WebDriverWait(self.driver, 30).until(
+            input_email = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, self.INPUT_EMAIL_XPATH))
             )
             input_email.send_keys("ahmd1997bdran@gmail.com")
 
-            continue_with_email_button = WebDriverWait(self.driver, 30).until(
+            continue_with_email_button = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, self.CONTINUE_WITH_EMAIL_BTN_XPATH))
             )
             continue_with_email_button.click()
 
-            input_password = WebDriverWait(self.driver, 30).until(
+            input_password = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, self.INPUT_PASSWORD_XPATH))
             )
             input_password.send_keys("wrong password")
 
-            login_button_after_insert_data = WebDriverWait(self.driver, 30).until(
+            login_button_after_insert_data = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, self.LOGIN_BUTTON_AFTER_INSERT_DATA_XPATH))
             )
             login_button_after_insert_data.click()
