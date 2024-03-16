@@ -11,7 +11,7 @@ class MainPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
-        self.login_button = WebDriverWait(self.driver, 50).until(
+        self.login_button = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.LOGIN_BUTTON_XPATH))
         )
 

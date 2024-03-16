@@ -24,10 +24,10 @@ class BrowserWrapper:
         grid = config['grid']
         hub_url = config['hub_url']
         url = config['url']
-        option.add_argument('--headless')  # This line makes Chrome ruun in headless mode
-        #option.add_argument('--no--sandbox')
-        #option.add_argument('--disable-dev-shm-usage')
-        #option.add_argument('--window-size=1920x1080')
+       # option.add_argument('--headless')  # This line makes Chrome ruun in headless mode
+        option.add_argument('--no--sandbox')
+        option.add_argument('--disable-dev-shm-usage')
+        option.add_argument('--window-size=1920x1080')
         if grid:
             print('ala ala')
             print(option.to_capabilities())
@@ -67,5 +67,5 @@ class BrowserWrapper:
     def get_capabilities_list(self):  # initialize the capabilities we need to test on
         chrome_cap = webdriver.ChromeOptions()
         firefox_cap = webdriver.FirefoxOptions()
-        cap_list = [firefox_cap, chrome_cap]
+        cap_list = [chrome_cap]
         return cap_list
