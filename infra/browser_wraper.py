@@ -37,8 +37,7 @@ class BrowserWrapper:
             print(option.to_capabilities())
             driver = webdriver.Remote(command_executor=hub_url, options=option)
             driver.get(url)
-            # Wait until the title changes from "Just a moment..."
-            WebDriverWait(driver, 300).until(EC.title_is("Upwork | The World’s Work Marketplace"))
+            sleep('200')
 
             print(f"{driver.title} hada hoo")
             driver.maximize_window()
