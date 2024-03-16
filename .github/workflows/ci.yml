@@ -35,12 +35,8 @@ jobs:
 
       - name: Set PYTHONPATH
         run: |
-          export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}"
+          export PYTHONPATH="${PYTHONPATH}
         
-
-      - name: Debug PYTHONPATH
-        run:
-          echo "PYTHONPATH: $PYTHONPATH"
 
       - name: Run tests
         run: |
