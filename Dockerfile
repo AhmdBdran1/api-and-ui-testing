@@ -1,23 +1,35 @@
-FROM python:3.9
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+# Use the official Python image from the Docker Hub
+FROM python:3.10-slim
+
 
 ENV PYTHONPATH="/usr/src/app:${PYTHONPATH}"
 
 # Define environment variable
 ENV PATH="/usr/src/app:${PATH}"
 
+# Set the working directory inside the container
+WORKDIR /app
 
-# Copy the requirements.txt file into the container at /usr/src/app/
-COPY requirements.txt .
-
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the local code into the container at /usr/src/app/
+# Copy everything from the current directory into the container
 COPY . .
 
+# Upgrade pip
+RUN pip install --no-cache-dir --upgrade pip
 
-# Command to run your main script
-CMD ["python", "test/API_test/api_test_runner.py"]
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install Chrome browser
+RUN apt-get update && apt-get install -y \
+    wget \
+    gnupg \
+    && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
+    && apt-get update && apt-get install -y \
+    google-chrome-stable \
+    && rm -rf /var/lib/apt/lists/*
+
+# Run the shell script that runs both Python scripts when the container starts
+# Run both Python scripts when the container starts
+CMD ["python", "tests_runner/ui_test_runner.py"]

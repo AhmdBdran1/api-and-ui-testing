@@ -9,7 +9,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-
 def read_config(file_path):  # open the config file for read
     script_directory = os.path.dirname(os.path.realpath(__file__))
     absolute_path = os.path.join(script_directory, file_path)
@@ -28,12 +27,10 @@ class BrowserWrapper:
         grid = config['grid']
         hub_url = config['hub_url']
         url = config['url']
-        option.add_argument("--disable-blink-features=AutomationControlled")
         option.add_argument('--headless')  # This line makes Chrome run in headless mode
         option.add_argument('--no--sandbox')
-        option.add_experimental_option("excludeSwitches", ["enable-automation"])
-        # Turn-off userAutomationExtension
-        option.add_experimental_option("useAutomationExtension", False)
+        option.add_argument('--disable-dev-shm-usage')
+        option.add_argument('--window-size=1920x1080')
 
         if grid:
             print('ala ala')
